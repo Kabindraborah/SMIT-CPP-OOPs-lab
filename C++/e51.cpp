@@ -3,24 +3,24 @@
 
 class STRING {
 private:
-    char *str;
+    char *str; // a char pointer to hold the string data
 
 public:
     // Constructor
-    STRING(const char *s) {
-        str = new char[strlen(s) + 1];
-        strcpy(str, s);
+    STRING(const char *s) { // takes const char of parameter s
+        str = new char[strlen(s) + 1]; // dma to store a copy of s using 'new' and length is calculated using strlen. strlen + 1 cuz 1 is for the null character 
+        strcpy(str, s); // copies the content of s into str
     }
 
     // Copy Constructor
-    STRING(const STRING &other) {
+    STRING(const STRING &other) { 
         str = new char[strlen(other.str) + 1];
         strcpy(str, other.str);
     }
 
     // Destructor
     ~STRING() {
-        delete[] str;
+        delete[] str; // cleaaning up dma for the 'str' member
     }
 
     // Function to concatenate two STRING objects
